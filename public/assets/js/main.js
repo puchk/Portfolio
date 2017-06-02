@@ -33,30 +33,28 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 // SCROLL===========================================
-
-var speed = 0;
-var scroll = 0;
-var container = $('.carousel-frame');
-var container_w = container.width();
-var max_scroll = container[0].scrollWidth - container.outerWidth();
-
-container.on('mousemove', function(e) {
-    var mouse_x = e.pageX - container.offset().left;
-    var mouseperc = 100 * mouse_x / container_w;
-    speed = mouseperc - 50;
-}).on ( 'mouseleave', function() {
-    speed = 0;
-});
-
-function updatescroll() {
-        if (speed !== 0) {
-            scroll += speed / 5;
-        if (scroll < 0) scroll = 0;
-        if (scroll > max_scroll) scroll = max_scroll;
-            $('.carousel-frame').scrollLeft(scroll);
+var b = null;
+$( '.carousel-frame ul' ).on( 'mousemove', function(e) {
+    var container = $(this).parent();
+    if ((e.pageX - container.offset().left) < container.width() / 2) {
+        var direction = function() {
+            container.animate( {scrollLeft: '-=600'}, 1000, 'linear', direction );
+        }
+        if ((b == false) || (b == null)) {
+            b = true;
+            container.stop( true ).animate( {scrollLeft: '-=600'}, 1000, 'linear', direction );
+        }
+    } else {
+        var direction = function() {
+            container.animate( {scrollLeft: '+=600'}, 1000, 'linear', direction );
+        }
+        if ((b == true) || (b == null)) {
+            b = false;
+            container.stop( true ).animate( {scrollLeft: '+=600'}, 1000, 'linear', direction );
+        }
     }
-    $("#speed").html('Speed: ' + speed);
-    $("#scroll").html('Scroll: ' + scroll);
-    window.requestAnimationFrame(updatescroll);
-}
-window.requestAnimationFrame(updatescroll);
+}).on ( 'mouseleave', function() {
+    var container = $(this).parent();
+    container.stop( true );
+    b = null;
+});
