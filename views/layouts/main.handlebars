@@ -17,31 +17,14 @@
   {{!-- Main CSS --}}
   <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
+  {{!-- LineMaker CSS --}}
+  <link rel="stylesheet" type="text/css" href="/assets/supplemental/lineMaker/decolines.css">
+
+
   {{{addCSS}}}
 </head>
 
 <body>
-<!--   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="/assets/images/rombuheaderimg2.png"></a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/portfolio">Portfolio</a></l1>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
 
   {{{body}}}
 
@@ -55,6 +38,69 @@
 
   {{!-- Main JS --}}
   <script src="/assets/js/main.js" /></script>
+
+  <script src="/assets/supplemental/anime/anime.min.js"></script>
+  <script src="/assets/supplemental/lineMaker/lineMaker.js"></script>
+  <script>
+      (function() {
+      var homeLines = new LineMaker({
+        lines: [
+          {top: '14%', left: 0, width: '100%', height: 2, color: '#ddd', hidden: true, animation: { duration: 1000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }},
+          {top: '85%', left: 0, width: '100%', height: 2, color: '#ddd', hidden: true, animation: { duration: 1000, easing: 'easeInOutExpo', delay: 100, direction: 'RightLeft' }}
+        ]
+      });
+      var allLines = new LineMaker({
+        position: 'fixed',
+        lines: [
+          {top: 0, left: '90%', width: 2, height: '100%', color: '#252525', hidden: true, animation: { duration: 1000, easing: 'easeInOutExpo', delay: 200, direction: 'TopBottom' }},
+          {top: 0, left: '10%', width: 2, height: '100%', color: '#252525', hidden: true, animation: { duration: 1000, easing: 'easeInOutExpo', delay: 300, direction: 'TopBottom' }},
+          {top: 0, left: '25%', width: 2, height: '100%', color: '#252525', hidden: true, animation: { duration: 1000, easing: 'easeInOutExpo', delay: 300, direction: 'TopBottom' }},
+          {top: 0, left: '75%', width: 2, height: '100%', color: '#252525', hidden: true, animation: { duration: 1000, easing: 'easeInOutExpo', delay: 300, direction: 'TopBottom' }}
+        ]
+      });
+      
+      setTimeout(function() {
+        homeLines.animateLineIn(0, {
+          complete: function() { lineMaker.showLine(0); }
+        });
+        homeLines.animateLineIn(1, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+      }, 100);
+
+      setTimeout(function() {
+        allLines.animateLineIn(0, {
+          complete: function() { lineMaker.showLine(0); }
+        });
+        allLines.animateLineIn(1, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+        allLines.animateLineIn(2, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+        allLines.animateLineIn(3, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+        allLines.animateLineIn(4, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+        allLines.animateLineIn(5, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+        allLines.animateLineIn(6, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+        allLines.animateLineIn(7, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+        allLines.animateLineIn(8, {
+          complete: function() { lineMaker.showLine(1); }
+        });
+      }, 100);
+    })();
+
+
+  </script>
 
   {{{addJS}}}
   
