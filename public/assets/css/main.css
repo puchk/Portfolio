@@ -397,6 +397,9 @@ body {
 #portfolio * {
   z-index: 2;
 }
+#portfolio {
+  padding-bottom: 90px;
+}
 
 @media (min-width: 767px) {
   #portfolio .portfolio-item {
@@ -480,6 +483,17 @@ body {
 }
 /*========================PORTFOLIO===============================*/
 
+/*About*/
+#selfie {
+  border: 2px solid rgb(200,200,200);
+  border-radius: 2%;
+}
+
+
+/*Contact*/
+#contact {
+  padding-bottom: 150px;
+}
 
 /*SCROLL====================================*/
 .carousel-frame {
