@@ -404,6 +404,7 @@ body {
 @media (min-width: 767px) {
   #portfolio .portfolio-item {
     margin: 0 0 30px;
+    border: 1px solid white;
   }
 }
 
@@ -487,6 +488,7 @@ body {
 #selfie {
   border: 2px solid rgb(200,200,200);
   border-radius: 2%;
+  max-width: 180px;
 }
 
 
